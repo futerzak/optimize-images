@@ -1,6 +1,6 @@
 # Oprimize Images
 
-[![Github][github-tag][github-url]]
+[![Github][github-tag]][github-url]
 [![Build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![License][license-image]][license-url]
@@ -21,7 +21,8 @@ const optimizeImage = require('optimize-image')
 
 const app = express()
 
-const tinypngApiKey = ""
+//generate from https://tinypng.com/developers
+const tinypngApiKey = "YOUR_API_SECRET_KEY" 
 const root = "public"
 
 app.use(optimizeImage(root, tinypngApiKey))
