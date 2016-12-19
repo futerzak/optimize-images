@@ -6,6 +6,10 @@ const send = require("send");
 const path = require("path")
 const fs = require("fs");
 
+const createOptimizedDirectory = require("./createOptimizedDirectory");
+const isPathExists = require("./isPathExists");
+const isImage = require("./isImage");
+
 
 module.exports = optimizeImage;
 module.exports.mime = send.mime;
@@ -103,41 +107,4 @@ function optimizeImage(root, apiKey) {
         stream.pipe(res);
     }
 
-    /**
-     * Chceck whether file is an image (supported by tinypng api)
-     * @param  {string}  fileName file name with extension
-     * @return {Boolean}          result
-     */
-    function isImage(fileName) {
-        const fileExtension = fileName.split(".").pop();
-        if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png') {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Create a directory where will be saved optimized images
-     * @param  {[type]} directoryName [description]
-     * @return {[type]}               [description]
-     */
-    function createOptimizedDirectory(directoryName) {
-        try {
-            fs.mkdirSync(directoryName);
-        } catch(e) {
-            if ( e.code != 'EEXIST' ){ console.error(e) /* throw e */ };
-        }
-    }
-
-    /**
-     * Check wherther file or directory exists
-     * @param  {string}  dir path to file or directory
-     * @return {Boolean}     result
-     */
-    function isPathExists(dir){
-        if(fs.existsSync(dir)){
-            return true;
-        }
-        return false;
-    }
 }
