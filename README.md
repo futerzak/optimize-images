@@ -8,7 +8,7 @@
 ## API
 
 ```js
-const optimizeImage = require('optimize-image')
+const optimizeImages = require('optimize-images')
 ```
 ### optimizeImage(root, tinypngApiKey)
 
@@ -17,7 +17,7 @@ const optimizeImage = require('optimize-image')
 
 ```js
 const express = require('express')
-const optimizeImage = require('optimize-image')
+const optimizeImages = require('optimize-images')
 
 const app = express()
 
@@ -25,7 +25,7 @@ const app = express()
 const tinypngApiKey = "YOUR_API_SECRET_KEY" 
 const root = "public"
 
-app.use(optimizeImage(root, tinypngApiKey))
+app.use(optimizeImages(root, tinypngApiKey))
 
 ```
 
