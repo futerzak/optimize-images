@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "4"
+  - "5"
+  - "6"
+  - "7"
+  - "node"
+sudo: false
+cache:
+    directories:
+        - node_modules
+before_install:
+    #setup npm
+    - "npm install"
+script:
+    # Run test script, depending on istanbull install
+    - "npm test"
