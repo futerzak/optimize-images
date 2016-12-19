@@ -6,9 +6,9 @@ const send = require("send");
 const path = require("path")
 const fs = require("fs");
 
-const createOptimizedDirectory = require("./createOptimizedDirectory");
-const isPathExists = require("./isPathExists");
-const isImage = require("./isImage");
+const createOptimizedDirectory = require("./lib/createOptimizedDirectory");
+const isPathExists = require("./lib/isPathExists");
+const isImage = require("./lib/isImage");
 
 
 module.exports = optimizeImage;

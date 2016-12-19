@@ -2,9 +2,9 @@ const assert = require('assert')
 const fs = require('fs')
 
 const optimizeImage = require('..')
-const createOptimizedDirectory = require("../createOptimizedDirectory");
-const isPathExists = require("../isPathExists");
-const isImage = require("../isImage");
+const createOptimizedDirectory = require("../lib/createOptimizedDirectory");
+const isPathExists = require("../lib/isPathExists");
+const isImage = require("../lib/isImage");
 
 describe('Array', function() {
     describe('#indexOf()', function() {
