@@ -1,4 +1,4 @@
-# Oprimize Images
+# Optimize Images
 
 [![Github][github-tag]][github-url]
 [![Build status][travis-image]][travis-url]
