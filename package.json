@@ -1,7 +1,7 @@
 {
   "name": "optimize-images",
   "version": "1.0.1",
-  "description": "",
+  "description": "Middleware to optimize images via tinypng and serving optimized images",
   "main": "index.js",
   "directories": {
     "test": "test"

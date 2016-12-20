@@ -3,8 +3,7 @@
 const parseUrl = require("parseurl");
 const tinify = require("tinify");
 const send = require("send");
-const path = require("path")
-const fs = require("fs");
+const path = require("path");
 
 const createOptimizedDirectory = require("./lib/createOptimizedDirectory");
 const isPathExists = require("./lib/isPathExists");
@@ -42,7 +41,7 @@ function optimizeImage(root, apiKey) {
             res.setHeader("Allow", "GET, HEAD");
             res.setHeader("Content-Length", "0");
             res.end();
-            return
+            return;
         }
 
 
@@ -63,7 +62,7 @@ function optimizeImage(root, apiKey) {
         }
 
         if (urlPath === '/' && originalUrl.pathname.substr(-1) !== '/') {
-          urlPath = ''
+          urlPath = '';
         }
 
         // check directories exists
