@@ -28,7 +28,11 @@
     "optimize",
     "image",
     "images",
-    "tinify"
+    "tinify",
+    "tinypng",
+    "png",
+    "jpg",
+    "jpeg"
   ],
   "author": "Michał Topór-Futer <futerzak@gmail.com>",
   "license": "MIT",
