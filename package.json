@@ -32,7 +32,10 @@
     "tinypng",
     "png",
     "jpg",
-    "jpeg"
+    "jpeg",
+    "compress",
+    "middleware",
+    "shrink"
   ],
   "author": "Michał Topór-Futer <futerzak@gmail.com>",
   "license": "MIT",
