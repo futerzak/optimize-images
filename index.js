@@ -15,11 +15,12 @@ module.exports.mime = send.mime;
 
 /**
  * Middleware use tinypng's api to optimize served images
- * @param  {string} root   path to directory with images
- * @param  {string} apiKey secret api key from https://tinypng.com/developers
+ * @param  {string} root     path to directory with images
+ * @param  {string} apiKey   secret api key from https://tinypng.com/developers
+ * @param  {object} options  middleware options
  * @return {function}
  */
-function optimizeImage(root, apiKey) {
+function optimizeImage(root, apiKey, options) {
     if (!root) {
       throw new TypeError('root path required');
     }
@@ -29,7 +30,7 @@ function optimizeImage(root, apiKey) {
     }
 
     // setup options for send
-    const opts = {};
+    const opts = options || {};
     opts.maxage = 0;
     opts.root = path.resolve(root);
 
@@ -53,7 +54,7 @@ function optimizeImage(root, apiKey) {
         const fileName = splitPath.pop();
         const dirPath = splitPath.join("/");
         const dir = path.join(root, "/", dirPath);
-        const optimizedPath = path.join(dirPath, "/", "optimized");
+        const optimizedPath = path.join(dirPath, "/", opts.dirName || "optimized");
         const optimizedDir = path.join(root, "/", optimizedPath);
 
         if (!isImage(fileName)) {

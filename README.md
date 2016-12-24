@@ -13,6 +13,7 @@ const optimizeImages = require('optimize-images')
 ```
 ### optimizeImage(root, tinypngApiKey)
 
+Middleware optimizes the images from root directory, save them to disk and then serves the optimized images.
 
 ## Example
 
