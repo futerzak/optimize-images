@@ -11,7 +11,7 @@
 ```js
 const optimizeImages = require('optimize-images')
 ```
-### optimizeImage(root, tinypngApiKey)
+### optimizeImage(root, tinypngApiKey, [options])
 
 Middleware optimizes the images from root directory, save them to disk and then serves the optimized images.
 
@@ -26,8 +26,11 @@ const app = express()
 //generate from https://tinypng.com/developers
 const tinypngApiKey = "YOUR_API_SECRET_KEY"
 const root = "public"
+const options = {
+  dirName: "optimized-images" 
+}
 
-app.use(optimizeImages(root, tinypngApiKey))
+app.use(optimizeImages(root, tinypngApiKey, options)
 
 ```
 
