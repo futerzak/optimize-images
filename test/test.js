@@ -6,20 +6,6 @@ const createOptimizedDirectory = require("../lib/createOptimizedDirectory");
 const isPathExists = require("../lib/isPathExists");
 const isImage = require("../lib/isImage");
 
-describe('Array', function() {
-    describe('#indexOf()', function() {
-        it('should return -1 when the value is not present', function() {
-            assert.equal(-1, [1,2,3].indexOf(4));
-        });
-    });
-
-    describe('#push()', function() {
-        it('should return 1 when put new value to empty array', function() {
-            assert.equal(1, [].push(4));
-        });
-    });
-});
-
 describe('optimizeImage', function() {
     describe('#isImage()', function() {
         it('should return true when the value is xxx.jpg', function() {
