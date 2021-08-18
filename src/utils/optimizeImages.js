@@ -1,26 +1,13 @@
-"use strict"
-
 const parseUrl = require("parseurl");
 const tinify = require("tinify");
 const send = require("send");
 const path = require("path");
 
-const createOptimizedDirectory = require("./lib/createOptimizedDirectory");
-const isPathExists = require("./lib/isPathExists");
-const isImage = require("./lib/isImage");
+const createOptimizedDirectory = require("./createOptimizedDirectory");
+const isPathExists = require("./isPathExists");
+const isImage = require("./isImage");
 
-
-module.exports = optimizeImage;
-module.exports.mime = send.mime;
-
-/**
- * Middleware use tinypng's api to optimize served images
- * @param  {string} root     path to directory with images
- * @param  {string} apiKey   secret api key from https://tinypng.com/developers
- * @param  {object} options  middleware options
- * @return {function}
- */
-function optimizeImage(root, apiKey, options) {
+function optimizeImages(root, apiKey, options) {
     if (!root) {
       throw new TypeError('root path required');
     }
@@ -36,15 +23,19 @@ function optimizeImage(root, apiKey, options) {
 
     tinify.key = apiKey;
 
-    return function optimizeImage(req, res, next) {
+    function isProperGetRequest(req, res) {
         if(req.method !== "GET" && req.method !== 'HEAD') {
             res.statusCode = 405;
             res.setHeader("Allow", "GET, HEAD");
             res.setHeader("Content-Length", "0");
             res.end();
-            return;
+            return false;
         }
+        return true;
+    }
 
+    return function optimizeImage(req, res, next) {
+        if(!isProperGetRequest(req, res)) return; 
 
         const originalUrl = parseUrl.original(req);
         let urlPath = parseUrl(req).pathname;
@@ -56,6 +47,7 @@ function optimizeImage(root, apiKey, options) {
         const dir = path.join(root, "/", dirPath);
         const optimizedPath = path.join(dirPath, "/", opts.dirName || "optimized");
         const optimizedDir = path.join(root, "/", optimizedPath);
+
 
         if (!isImage(fileName)) {
             next();
@@ -108,3 +100,5 @@ function optimizeImage(root, apiKey, options) {
     }
 
 }
+
+module.exports = optimizeImages;

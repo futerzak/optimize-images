@@ -1,10 +1,10 @@
 const assert = require('assert')
 const fs = require('fs')
 
-const optimizeImage = require('..')
-const createOptimizedDirectory = require("../lib/createOptimizedDirectory");
-const isPathExists = require("../lib/isPathExists");
-const isImage = require("../lib/isImage");
+const optimizeImage = require('../src')
+const createOptimizedDirectory = require("../src/lib/createOptimizedDirectory");
+const isPathExists = require("../src/lib/isPathExists");
+const isImage = require("../src/lib/isImage");
 
 describe('optimizeImage', function() {
     describe('#isImage()', function() {

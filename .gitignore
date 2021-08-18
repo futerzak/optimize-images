@@ -30,3 +30,9 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Compilation output files
+lib
+
+# environment file
+.env

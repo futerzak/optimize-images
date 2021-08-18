@@ -1,28 +1,34 @@
 {
   "name": "optimize-images",
-  "version": "1.2.0",
-  "description": "Middleware to optimize images via tinypng and serving optimized images",
-  "main": "index.js",
+  "version": "1.2.0-development",
+  "description": "Middleware to optimize images via tinypng.com and serving optimized images",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "fs": "0.0.1-security",
-    "parseurl": "^1.3.1",
+    "fs": "^0.0.1-security",
+    "parseurl": "^1.3.3",
     "path": "^0.12.7",
-    "send": "^0.14.1",
-    "tinify": "^1.3.0"
+    "send": "^0.17.1",
+    "tinify": "^1.5.0"
   },
   "devDependencies": {
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mocha": "^9.0.3",
+    "semantic-release": "^17.4.5",
+    "typescript": "^4.3.5"
   },
   "scripts": {
-    "test": "mocha"
+    "start": "tsc --watch --preserveWatchOutput",
+    "playground": "cd playground && node index.js",
+    "test": "mocha",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/futerzak/optimize-images"
+    "url": "https://github.com/futerzak/optimize-images"
   },
   "keywords": [
     "optimize",
@@ -35,6 +41,8 @@
     "jpeg",
     "compress",
     "middleware",
+    "cache",
+    "static",
     "shrink"
   ],
   "author": "Michał Topór-Futer <futerzak@gmail.com>",

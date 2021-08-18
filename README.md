@@ -30,7 +30,7 @@ const options = {
   dirName: "optimized-images" 
 }
 
-app.use(optimizeImages(root, tinypngApiKey, options)
+app.use(optimizeImages(root, tinypngApiKey, options))
 
 ```
 
